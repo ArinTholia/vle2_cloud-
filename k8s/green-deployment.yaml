@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vle2-app-green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vle2-app
+      version: green
+  template:
+    metadata:
+      labels:
+        app: vle2-app
+        version: green
+    spec:
+      containers:
+      - name: vle2-container
+        image: IMAGE_PLACEHOLDER
+        ports:
+        - containerPort: 80

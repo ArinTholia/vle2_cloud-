@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vle2-app-blue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vle2-app
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: vle2-app
+        version: blue
+    spec:
+      containers:
+      - name: vle2-container
+        image: arintholia/vle2-app:1
+        ports:
+        - containerPort: 80
